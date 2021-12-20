@@ -46,5 +46,5 @@ void loadPage(String headerText, uint16_t headerTextCol, uint16_t headerBkgCol, 
 
   spr.drawString("01234567890123456789", leftMargin, 293);
 
-  spr.pushSprite(0, 0); //Push to LCD
+  spr.pushSprite(0, 0); //Push to LCD 
 }
