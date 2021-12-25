@@ -6,14 +6,16 @@
 #include <Page_Home.h>
 #include <Page_Date_Time.h>
 #include <Page_Temp_Humi.h>
+#include <Page_Word_Colour_Match_Game.h>
 #include <Page_Battery.h>
 
 // Pages (features)
-#define PAGES_MAX 4
+#define PAGES_MAX 5
 #define PAGE_HOME 1
 #define PAGE_DATE_TIME 2
 #define PAGE_TEMP_HUMI 3
-#define PAGE_BATTERY 4
+#define PAGE_WORD_COLOUR_MATCH_GAME 4
+#define PAGE_BATTERY 5
 
 // Set to 1 to print debug messages to serial
 #define DEBUG 0
@@ -31,7 +33,7 @@
 #define BUTTON_BOT WIO_KEY_A
 
 // Global variables
-int pageToShow = PAGE_DATE_TIME;
+int pageToShow = PAGE_WORD_COLOUR_MATCH_GAME;
 
 // Volatile variables for interrupt service routine
 volatile int joystickPressPressed = 0;
@@ -96,6 +98,7 @@ void setup()
   }
 
   pageTempHumiSetup();
+  pageWordColourMatchGameSetup();
   pageBatterySetup(&tft);
 }
 
@@ -113,6 +116,9 @@ void loop()
     break;
   case PAGE_TEMP_HUMI:
     pageTempHumiLoop(&tft);
+    break;
+  case PAGE_WORD_COLOUR_MATCH_GAME:
+    pageWordColourMatchGameLoop(&tft, &rtc);
     break;
   case PAGE_BATTERY:
     pageBatteryLoop(&tft);

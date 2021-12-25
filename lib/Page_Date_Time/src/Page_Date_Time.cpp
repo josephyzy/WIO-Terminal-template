@@ -1,7 +1,5 @@
 #include <Page_Date_Time.h>
 
-extern int joystickLeftPressed;
-
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
 void pageDateTimeLoop(TFT_eSPI *tft, RTC_SAMD51 *rtc)
